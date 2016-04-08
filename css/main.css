@@ -1,16 +1,23 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: #EEEEEE;
+
 
 }
+.heading {
+  background-color: white;
+}
 h3 {
-  margin: 8px 20px;
+  margin: 0;
+  padding: 8px 20px;
   font-family: roboto;
+  font-weight: 500;
 }
 
 .answerArea {
-  background-color: #EEEEEE;
   text-align: center;
+  margin-top: 50px;
 }
 /*hr {
   margin: 0;
@@ -30,6 +37,8 @@ h2 span {
 
 img {
   max-width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 .answer {
