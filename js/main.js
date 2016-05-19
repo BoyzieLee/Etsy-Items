@@ -102,8 +102,7 @@ let woodGoods = items.filter(function(items ){
   // return items.materials === "wood";
   return items.materials.indexOf ('wood') >= 0;
 });
-  console.log(woodGoods);
-// console.log(woodGoods);
+  // console.log(woodGoods);
 woodGoods.forEach(function(item) {
   // identify what's made of wood
   let answer4 = item.title + ' is made of wood';
@@ -125,15 +124,52 @@ woodGoods.forEach(function(item) {
 ////////////////////////////
 // 5) Which items are made of eight or more materials? Display the name, number of items and the items it is made of.
 
+// filter items needing 8 or more materials
+var eightOrMore = items.filter(function(item) {
+  return item.materials.length >= 8;
+});
+
+// iterate over what each item is
+eightOrMore.forEach(function (num) {
+
+  sectionFive = document.querySelector('#answer5');
+
+  // itentify section on HTML
+  var section5 = document.createElement('ul');
+
+  // iterate over the item.materials
+  num.materials.forEach(function(materials){
+  });
+
+  // display each items name
+  var list = document.createElement('li');
+
+  // display the number of each item
+  var section5 = num.title + ' has' + num.materials.length + 'materials:';
+  // list each item
+
+  var eightOrMore = document.createTextNode(num.materials.length);
+
+  // create HTML element
+  sectionFive.appendChild(eightOrMore);
+
+  // post on page
+  sectionFive.appendChild(list);
+});
+
+
 
 
 ////////////////////////////
 // 6) How many items were made by their sellers?
-// let besties = ... (function(...){
-//
-// });
-
-besties(function (){
-  let answer6 = items.COUNT + ' were made by their sellers';
-
+let besties = items.filter(function(item){
+  return item.who_made === "i_did";
 });
+
+// besties(function (items){
+let answer6 = besties.length + ' were made by their sellers';
+  // console.log(answer6);
+
+var section6 = document.querySelector('#answer6');
+// var besties = document.createTextNode(items.who_made);
+section6.innerHTML = answer6;

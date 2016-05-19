@@ -46,6 +46,10 @@ img {
   padding-bottom: 60px;
 }
 
+li {
+  list-style: none;
+}
+
 footer {
   color: #E9E9E9;
   background-color: #4B484F;
