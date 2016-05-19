@@ -128,33 +128,32 @@ woodGoods.forEach(function(item) {
 var eightOrMore = items.filter(function(item) {
   return item.materials.length >= 8;
 });
-
 // iterate over what each item is
-eightOrMore.forEach(function (num) {
-
-  sectionFive = document.querySelector('#answer5');
-
-  // itentify section on HTML
-  var section5 = document.createElement('ul');
+eightOrMore.map(function (num) {
 
   // iterate over the item.materials
   num.materials.forEach(function(materials){
   });
+  section5 = document.querySelector('#answer5');
+
+  // itentify section on HTML
+  var theUl = document.createElement('ul');
 
   // display each items name
-  var list = document.createElement('li');
+  var theLi = document.createElement('li');
 
   // display the number of each item
-  var section5 = num.title + ' has' + num.materials.length + 'materials:';
+  var post = num.title + ' has ' + num.materials.length + ' materials:';
   // list each item
 
-  var eightOrMore = document.createTextNode(num.materials.length);
+  console.log(post);
+  eightOrMore = document.createTextNode(num.materials.length);
 
   // create HTML element
-  sectionFive.appendChild(eightOrMore);
+  theLi.appendChild(eightOrMore);
 
   // post on page
-  sectionFive.appendChild(list);
+  section5.innerHTML = post;
 });
 
 
