@@ -39,7 +39,7 @@ answer1Area.innerHTML = answer1;
 
 // filter price
 var itemsBetween = items.filter(function(item) {
-  if (item.price >=14 && item.price <= 18) {
+  if (item.price >=14.01 && item.price <= 17.99) {
     return item.price
   }
 
@@ -106,7 +106,7 @@ let woodGoods = items.filter(function(items ){
 // console.log(woodGoods);
 woodGoods.forEach(function(item) {
   // identify what's made of wood
-  let answer4 = items.title + ' is made of wood';
+  let answer4 = item.title + ' is made of wood';
 
   // identify section on html
   var section4 = document.querySelector('#answer4');
@@ -120,4 +120,20 @@ woodGoods.forEach(function(item) {
 
 // post to page
   section4.innerHTML = answer4;
+});
+
+////////////////////////////
+// 5) Which items are made of eight or more materials? Display the name, number of items and the items it is made of.
+
+
+
+////////////////////////////
+// 6) How many items were made by their sellers?
+// let besties = ... (function(...){
+//
+// });
+
+besties(function (){
+  let answer6 = items.COUNT + ' were made by their sellers';
+
 });
