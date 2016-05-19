@@ -31,7 +31,34 @@ answer1Area.innerHTML = answer1;
 
 
 // 2. SHOW ME HOW TO GET AN ARRAY of items that cost between $14.00 and $18.00 USD
+//
+// var itemsBetween = ['costLow', 'costHigh'];
+//   costLow = 14;
+//   costHigh = 18;
 
-var itemsBetween = ['costLow', 'costHigh'];
-costLow = 14;
-costHigh =18;
+var itemsBetween = items.filter(function(item) {
+  if (item.price >=14 && item.price <= 18) {
+    return item.price
+  }
+
+});
+
+var section2 = document.querySelector('#answer2');
+console.log(section2);
+
+itemsBetween.forEach(function(singleProduct) {
+  console.log(itemsBetween);
+
+  var htmlElem = document.createElement('p');
+
+  var listItems = document.createTextNode(singleProduct.title);
+
+  htmlElem.appendChild(listItems);
+
+  section2.appendChild(htmlElem);
+
+});
+
+// var listAllBetween = items.map( function (item) {
+//   return item.price;
+// });
