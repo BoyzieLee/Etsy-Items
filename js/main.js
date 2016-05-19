@@ -90,25 +90,33 @@ var section3 = document.querySelector('#answer3');
 
 //////////////////////////////
 // 4) Display a list of all items who are made of wood.
-let woodGoods = items.filter(function(woddie ){
-  return items.materials === "wood";
+// function isBigEnough(element, index, array) {
+//   return element >= 10;
+// };
+
+// function woodGoods(wood) {
+//   return woodGoods >= 0;
+// };
+
+let woodGoods = items.filter(function(items ){
+  // return items.materials === "wood";
+  return items.materials.indexOf ('wood') >= 0;
 });
-
+  console.log(woodGoods);
 // console.log(woodGoods);
-woodGoods.map(function(item) {
-  // let answer4 = woodie.title;
+woodGoods.forEach(function(item) {
+  // identify what's made of wood
+  let answer4 = items.title + ' is made of wood';
 
-// identify what's made of wood
+  // identify section on html
+  var section4 = document.querySelector('#answer4');
 
-// identify section on html
-let section4 = document.querySelector('#answer4');
+  // create html element
+  var htmlElem = document.createElement('p');
 
-// create html element
-let htmlElem = document.createElement('p');
+  var woodGoods = document.createTextNode(items.title);
 
-let woodGoods = document.createTextNode(materials.title);
-
-htmlElem.appendChild(woodGoods);
+  htmlElem.appendChild(woodGoods);
 
 // post to page
   section4.innerHTML = answer4;
