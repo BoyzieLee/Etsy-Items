@@ -94,68 +94,52 @@ var section3 = document.querySelector('#answer3');
 //   return element >= 10;
 // };
 
-// function woodGoods(wood) {
-//   return woodGoods >= 0;
-// };
-
-let woodGoods = items.filter(function(items ){
+var woodGoods = items.filter (function (item) {
   // return items.materials === "wood";
-  return items.materials.indexOf ('wood') >= 0;
+
+  return item.materials.indexOf("wood") >= 0;
 });
-  // console.log(woodGoods);
-woodGoods.forEach(function(item) {
-  // identify what's made of wood
-  let answer4 = item.title + ' is made of wood';
+// identify section on html
+var section4 = document.querySelector("#answer4")
 
-  // identify section on html
-  var section4 = document.querySelector('#answer4');
-
+woodGoods.forEach (function (item){
   // create html element
-  var htmlElem = document.createElement('p');
-
-  var woodGoods = document.createTextNode(items.title);
-
-  htmlElem.appendChild(woodGoods);
-
-// post to page
-  section4.innerHTML = answer4;
+  var para = document.createElement("p");
+  // identify what's made of wood
+  para.innerHTML = item.title + " is made of wood";
+  // post to page
+  section4.appendChild(para);
 });
+
 
 ////////////////////////////
 // 5) Which items are made of eight or more materials? Display the name, number of items and the items it is made of.
 
-// filter items needing 8 or more materials
-var eightOrMore = items.filter(function(item) {
+var eightOrMore = items.filter(function (item){
   return item.materials.length >= 8;
 });
-// iterate over what each item is
-eightOrMore.map(function (num) {
+var answer5 = eightOrMore.map(function (item) {
+  return item.title;
 
-  // iterate over the item.materials
-  num.materials.forEach(function(materials){
-  });
-  section5 = document.querySelector('#answer5');
+  var post = document.createElement('p');
+  post.innerHTML = material.title + ' has ' + num.materials.length + ' materials:';
+  answer5.appendChild(post);
 
-  // itentify section on HTML
   var theUl = document.createElement('ul');
 
-  // display each items name
-  var theLi = document.createElement('li');
-
-  // display the number of each item
-  var post = num.title + ' has ' + num.materials.length + ' materials:';
-  // list each item
-
-  console.log(post);
-  eightOrMore = document.createTextNode(num.materials.length);
-
-  // create HTML element
-  theLi.appendChild(eightOrMore);
-
-  // post on page
-  section5.innerHTML = post;
+  materials.materials.forEach(function (item) {
+    var theLi = document.createElement('li');
+    theLi.innerHTML = item;
+    theUl.appendChild(theLi);
+  });
 });
 
+var section5 = document.querySelector('#answer5');
+section5.innerHTML = answer5;
+
+
+// console.log(eightOrMore);
+// console.log(answer5);
 
 
 
