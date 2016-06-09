@@ -29,7 +29,7 @@ var answer1Area = document.querySelector('#answer1');
 answer1Area.innerHTML = answer1;
 
 
-/////////////////////////////////
+/////////////////////////////////////////////////
 // 2. SHOW ME HOW TO GET AN ARRAY of items that cost between $14.00 and $18.00 USD
 //
 // Old code
@@ -69,7 +69,7 @@ itemsBetween.forEach(function(singleProduct) {
 //   return item.price;
 // });
 
-/////////////////////////////////
+//////////////////////////////////////////////////////
 // 3) Which item has a "GBP" currency code? Display it's name and price.
 
 // identify currency code
@@ -88,7 +88,7 @@ var section3 = document.querySelector('#answer3');
   section3.innerHTML = answer3;
 });
 
-//////////////////////////////
+//////////////////////////////////////////////////////
 // 4) Display a list of all items who are made of wood.
 // function isBigEnough(element, index, array) {
 //   return element >= 10;
@@ -112,38 +112,49 @@ woodGoods.forEach (function (item){
 });
 
 
-////////////////////////////
+/////////////////////////////////////////////////
 // 5) Which items are made of eight or more materials? Display the name, number of items and the items it is made of.
 
-var eightOrMore = items.filter(function (item){
+
+var eightOrMore = items.filter ( function (item){
   return item.materials.length >= 8;
 });
-var answer5 = eightOrMore.map(function (item) {
-  return item.title;
 
+// identify html element
+var answer5Area = document.querySelector('#answer5');
+
+
+eightOrMore.forEach( function (item){
+  // create p tag
   var post = document.createElement('p');
-  post.innerHTML = material.title + ' has ' + num.materials.length + ' materials:';
-  answer5.appendChild(post);
 
-  var theUl = document.createElement('ul');
+  post.innerHTML = item.title + 'has ' + item.materials.length + ' materials';
+  // append to p tag
+  answer5Area.appendChild(post);
 
-  materials.materials.forEach(function (item) {
-    var theLi = document.createElement('li');
-    theLi.innerHTML = item;
-    theUl.appendChild(theLi);
+  // create the ul for the li(s) for materials
+  var ulTag = document.createElement('ul');
+
+  // iterate over materials in marerials array
+  item.materials.forEach( function(material){
+    // create li tag
+    var liTag = document.createElement('li');
+    liTag.innerHTML = material;
+    // append li tag to the ul
+    ulTag.appendChild(liTag);
   });
+
+  // append ul tag to the answere element on the page
+  answer5Area.appendChild(ulTag);
 });
 
-var section5 = document.querySelector('#answer5');
-section5.innerHTML = answer5;
 
-
-// console.log(eightOrMore);
-// console.log(answer5);
+console.log(eightOrMore);
+console.log(answer5);
 
 
 
-////////////////////////////
+/////////////////////////////////////////////////
 // 6) How many items were made by their sellers?
 let besties = items.filter(function(item){
   return item.who_made === "i_did";
